@@ -19,7 +19,7 @@ class Contact
 
   # This method should call the initializer,
   # store the newly created contact, and then return it
-  def self.create
+  def self.create(first_name, last_name, email, note)
     new_contact = self.new(first_name, last_name, email, note)
     @@contacts << new_contact
     return new_contact
