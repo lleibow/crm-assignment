@@ -1,8 +1,10 @@
 class Contact
 
   #This makes these instance variables accessible outside of class definition
-  attr_reader :id
   attr_accessor :first_name, :last_name, :email, :note
+
+    @@contacts = []
+    @@id = 1
 
   # This method should initialize the contact's attributes
   def initialize(first_name, last_name, email, note)
