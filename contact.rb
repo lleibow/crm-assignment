@@ -2,7 +2,7 @@ class Contact
 
   #This makes these instance variables accessible outside of class definition
   attr_accessor :first_name, :last_name, :email, :note
-
+  attr_reader :id
     @@contacts = []
     @@id = 1
 
@@ -27,13 +27,17 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
-
+    @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
-
+  def self.find(id)
+    @@contacts.each do |id|
+      if id.id == id
+        return id
+      end
+    end
   end
 
   # This method should allow you to specify
@@ -70,3 +74,12 @@ class Contact
   # Feel free to add other methods here, if you need them.
 
 end
+
+#tests
+
+Contact.create("Laura", "Leibow", "poop", "poop")
+Contact.create("Larry", "David", "hotpoop@poopmail.poop", "pretty pretty sure")
+
+puts "#{Contact.all}"
+
+puts "#{Contact.find(2)}"
