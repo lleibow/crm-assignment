@@ -44,21 +44,18 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update(attribute, edited)
-    if attribute == "first name"
-      @new_first_name = edited
-      @first_name = (@new_first_name)
-    elsif attribute == "first name"
-      @new_last_name = edited
-      @last_name = (@new_last_name)
-    elsif attribute == "email"
-      @new_email = edited
-      @email = (@new_email)
-    elsif attribute == "note"
-      @new_note = edited
-      @note=(@new_note)
-    end
-  end
+  def update(attribute, value)
+
+   case attribute
+     when "first_name"
+       self.first_name = value
+     when "last_name"
+       self.last_name = value
+     when "email"
+       self.email = value
+     when "note"
+       self.note = value
+   end
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
