@@ -33,9 +33,9 @@ class Contact
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
-    @@contacts.each do |id|
-      if id.id == id
-        return id
+    @@contacts.each do |contact|
+      if contact.id == id
+        return contact
       end
     end
   end
@@ -52,9 +52,32 @@ class Contact
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by
-
-  end
+  def self.find_by(attribute, value)
+      @@contacts.each do |contact|
+        case attribute
+          when "id"
+            if contact.id == value
+              return contact
+            end
+          when "first name"
+            if contact.first_name == value
+              return contact
+            end
+            when "last name"
+              if contact.last_name == value
+                return contact
+              end
+            when"email"
+              if contact.email == value
+                return contact
+              end
+            when "note"
+              if contact.note == value
+                return contact
+              end
+          end
+      end
+    end
 
   # This method should delete all of the contacts
   def self.delete_all
@@ -83,3 +106,5 @@ Contact.create("Larry", "David", "hotpoop@poopmail.poop", "pretty pretty sure")
 puts "#{Contact.all}"
 
 puts "#{Contact.find(2)}"
+
+puts "#{Contact.find_by("last_name", "David")}"
