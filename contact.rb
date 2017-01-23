@@ -44,8 +44,20 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
-
+  def update(attribute, edited)
+    if attribute == "first name"
+      @new_first_name = edited
+      @first_name = (@new_first_name)
+    elsif attribute == "first name"
+      @new_last_name = edited
+      @last_name = (@new_last_name)
+    elsif attribute == "email"
+      @new_email = edited
+      @email = (@new_email)
+    elsif attribute == "note"
+      @new_note = edited
+      @note=(@new_note)
+    end
   end
 
   # This method should work similarly to the find method above
