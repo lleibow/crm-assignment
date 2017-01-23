@@ -93,9 +93,9 @@ class Contact
       @@contacts = []
     end
 
-  def full_name
-
-  end
+    def full_name
+        "#{self.first_name} #{self.last_name}"
+      end
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
